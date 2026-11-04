@@ -1,0 +1,6 @@
+{
+  "name": "Bio Genius AI",
+  "description": "#1 AI Bio Generator 2026. Generate 500+ human-like, SEO-optimized bios for Instagram, TikTok, YouTube, and LinkedIn in 17 languages.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Bio Genius AI - #1 AI Bio Generator 2026</title>
+    <meta
+      name="description"
+      content="#1 AI Bio Generator 2026. Generate 500+ human-like, SEO-optimized bios for Instagram, TikTok, YouTube, and LinkedIn in 17 languages."
+    />
+    <meta name="keywords" content="bio generator, AI bio generator, instagram bio, tiktok bio, linkedin bio, youtube description, viral bios 2026" />
+    <meta name="author" content="Amir Sohail" />
+    <meta name="theme-color" content="#E11D48" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="BioGenius" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Bio Genius AI - #1 AI Bio Generator 2026" />
+    <meta
+      property="og:description"
+      content="Generate 500+ human-like, SEO-optimized bios in 2 seconds for Instagram, TikTok, YouTube, and LinkedIn in 17 languages."
+    />
+    <meta property="og:site_name" content="Bio Genius AI" />
+    <meta property="og:image" content="/bio-genius-ai-logo-wide.webp" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bio Genius AI - #1 AI Bio Generator 2026" />
+    <meta
+      name="twitter:description"
+      content="Generate 500+ human-like, SEO-optimized bios in 2 seconds for Instagram, TikTok, YouTube, and LinkedIn in 17 languages."
+    />
+    <meta name="twitter:image" content="/bio-genius-ai-logo-wide.webp" />
+
+    <!-- Icons and Manifest -->
+    <link rel="icon" type="image/png" href="/icons/icon-192x192.png" />
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "#webapp",
+          "name": "Bio Genius AI",
+          "url": "/",
+          "applicationCategory": "SocialNetworkingApplication",
+          "operatingSystem": "All",
+          "description": "Generate 500+ human-like, SEO-optimized bios in 2 seconds for Instagram, TikTok, YouTube, and LinkedIn in 17 languages.",
+          "offers": {
+            "@type": "Offer",
+            "price": "299",
+            "priceCurrency": "PKR",
+            "description": "Lifetime Premium with unlimited GPT-4 bio generations and 17 languages"
+          },
+          "creator": {
+            "@type": "Person",
+            "name": "Amir Sohail",
+            "email": "baithakotbattagram1@gmail.com",
+            "jobTitle": "Founder & CEO of Bio Genius AI",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Thakot",
+              "addressRegion": "Battagram, Khyber Pakhtunkhwa",
+              "addressCountry": "Pakistan"
+            }
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "#organization",
+          "name": "Bio Genius AI",
+          "url": "https://biogenius.ai",
+          "logo": "https://biogenius.ai/bio-genius-ai-logo-wide.webp",
+          "founder": "Amir Sohail",
+          "email": "baithakotbattagram1@gmail.com",
+          "address": "Thakot, Battagram, Pakistan",
+          "sameAs": [
+            "https://linkedin.com/in/amir-sohail"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "#founder",
+          "name": "Amir Sohail",
+          "email": "baithakotbattagram1@gmail.com",
+          "address": "Thakot, Battagram, Pakistan",
+          "jobTitle": "Founder & CEO of Bio Genius AI",
+          "worksFor": {
+            "@id": "#organization"
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-[#0a0f1e] text-slate-100 antialiased selection:bg-[#E11D48] selection:text-white min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Register Service Worker for PWA
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => {
+              console.log('Bio Genius AI Service Worker registered:', reg.scope);
+            })
+            .catch(err => {
+              console.warn('Bio Genius AI Service Worker registration failed:', err);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>

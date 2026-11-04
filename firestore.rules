@@ -1,0 +1,109 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default Deny Catch-All
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Security Helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'as2129wq@gmail.com' ||
+        request.auth.token.email == 'baithakotbattagram1@gmail.com' ||
+        request.auth.token.email == 'umpheres@gmail.com'
+      );
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Bios Collection (Public read for viral directories & explore)
+    match /bios/{bioId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if isSignedIn() && (
+        (resource.data.authorId == request.auth.uid) || isAdmin()
+      );
+    }
+
+    // Payments (EasyPaisa, Payoneer, Elevate)
+    match /pending_payments/{paymentId} {
+      allow create: if true;
+      allow read: if (isSignedIn() && resource.data.userId == request.auth.uid) || isAdmin();
+      allow update, delete: if isAdmin();
+    }
+
+    // Complaints & Reports
+    match /complaints/{complaintId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Ratings & Reviews
+    match /ratings/{ratingId} {
+      allow read, create: if true;
+      allow update, delete: if isAdmin();
+    }
+
+    // Contact Messages
+    match /messages/{messageId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Analytics and Bio Stats
+    match /analytics/{docId} {
+      allow read, write: if true;
+    }
+
+    match /bio_stats/{docId} {
+      allow read, write: if true;
+    }
+
+    // App Config
+    match /app_config/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Community Hall of Fame
+    match /hall_of_fame/{docId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if true;
+      allow delete: if isAdmin();
+    }
+
+    // SEO Keywords & Programmatic Pages
+    match /seo_keywords/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    match /seo_pages/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Instagram & Social Scanned Bios
+    match /scanned_bios/{docId} {
+      allow read, write: if true;
+    }
+  }
+}

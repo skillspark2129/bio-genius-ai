@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1e" />
+      <stop offset="100%" stop-color="#141c38" />
+    </linearGradient>
+    <linearGradient id="brandRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F43F5E" />
+      <stop offset="100%" stop-color="#E11D48" />
+    </linearGradient>
+    <linearGradient id="brandYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047" />
+      <stop offset="100%" stop-color="#FACC15" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background rounded squircle with safe margin -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+
+  <!-- Outer Ring Accent -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="url(#brandRed)" stroke-width="8" opacity="0.4" />
+
+  <!-- Red Glowing Diamond/Shield Shape -->
+  <path d="M256 70 L390 155 V300 C390 380 256 445 256 445 C256 445 122 380 122 300 V155 Z" fill="url(#brandRed)" opacity="0.95" />
+
+  <!-- Inner Dark Contrast Area -->
+  <path d="M256 95 L370 170 V290 C370 355 256 415 256 415 C256 415 142 355 142 290 V170 Z" fill="#0a0f1e" />
+
+  <!-- White Monogram 'B' & Genius AI Spark -->
+  <path d="M205 165 H275 C310 165 330 182 330 210 C330 228 320 242 302 250 C325 258 338 275 338 305 C338 338 312 355 272 355 H205 Z" fill="white" />
+  <path d="M245 200 H270 C285 200 295 208 295 220 C295 233 285 240 270 240 H245 Z" fill="#0a0f1e" />
+  <path d="M245 272 H274 C292 272 302 281 302 297 C302 314 290 322 272 322 H245 Z" fill="#0a0f1e" />
+
+  <!-- Spark Accent in Yellow #FACC15 -->
+  <polygon points="370,120 380,145 405,155 380,165 370,190 360,165 335,155 360,145" fill="url(#brandYellow)" />
+  <polygon points="140,230 146,245 162,250 146,256 140,272 134,256 118,250 134,245" fill="url(#brandYellow)" />
+</svg>

@@ -1,0 +1,65 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User profile with authentication and subscription tier",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth user ID" },
+        "email": { "type": "string", "format": "email", "description": "User email address" },
+        "displayName": { "type": "string", "maxLength": 100, "description": "Full name or creator handle" },
+        "photoURL": { "type": "string", "description": "Avatar image URL" },
+        "isPremium": { "type": "boolean", "description": "Whether user unlocked lifetime premium" },
+        "role": { "type": "string", "enum": ["user", "admin"], "description": "Access control role" },
+        "savedBioIds": { "type": "array", "description": "List of saved bio IDs" },
+        "generationsToday": { "type": "number", "description": "Count of bio generations today" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Account registration date" }
+      },
+      "required": ["uid", "email", "createdAt"]
+    },
+    "Bio": {
+      "title": "Bio",
+      "description": "Social media bio item",
+      "type": "object",
+      "properties": {
+        "text": { "type": "string", "maxLength": 2000, "description": "Bio text content" },
+        "platform": { "type": "string", "enum": ["instagram", "tiktok", "youtube", "linkedin"], "description": "Target social platform" },
+        "tone": { "type": "string", "description": "Tone of voice" },
+        "language": { "type": "string", "description": "Language used" },
+        "humanScore": { "type": "number", "description": "Human-like natural cadence score" },
+        "authorId": { "type": "string", "description": "User ID of creator" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["text", "platform", "createdAt"]
+    },
+    "PendingPayment": {
+      "title": "Pending Payment",
+      "description": "EasyPaisa payment verification submission",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Applicant user ID" },
+        "userEmail": { "type": "string", "format": "email", "description": "Applicant email" },
+        "trxId": { "type": "string", "maxLength": 64, "description": "EasyPaisa transaction ID" },
+        "screenshotUrl": { "type": "string", "description": "Receipt screenshot URL" },
+        "amount": { "type": "number", "description": "Amount in PKR" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"], "description": "Approval state" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Submission timestamp" }
+      },
+      "required": ["userId", "trxId", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "entities.User" },
+      "description": "User profile documents keyed by Firebase Auth UID"
+    },
+    "/bios/{bioId}": {
+      "schema": { "$ref": "entities.Bio" },
+      "description": "Public and user-generated bio documents"
+    },
+    "/pending_payments/{paymentId}": {
+      "schema": { "$ref": "entities.PendingPayment" },
+      "description": "EasyPaisa payment verification records"
+    }
+  }
+}
